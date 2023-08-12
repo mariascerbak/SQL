@@ -1,0 +1,29 @@
+CREATE TABLE product_list (id INTEGER PRIMARY KEY,item TEXT, price INTEGER, stock INTEGER, number_sold INTEGER);
+
+INSERT INTO product_list VALUES (1, "Coconut Body Butter", 9,52,21);
+INSERT INTO product_list VALUES (2, "Shea and Honey Body Butter", 11,55,33);
+INSERT INTO product_list VALUES (3, "Coconut Milk Moisturizing Lotion", 8,46,28);
+INSERT INTO product_list VALUES (4, "Coconut and Turmeric Body Wash", 7,20,8);
+INSERT INTO product_list VALUES (5, "Lavender and Oat Body wash", 7,22,11);
+INSERT INTO product_list VALUES (6, "Clarifying and Moisturizing Cleanser", 13,77,57);
+INSERT INTO product_list VALUES (7, "Hydrating Cleanser", 13,77,49);
+INSERT INTO product_list VALUES (8, "AHA and BHA Clarifying Solution", 14,12,1);
+INSERT INTO product_list VALUES (9, "Vanilla Berry Lip Balm", 4,120,96);
+INSERT INTO product_list VALUES (10, "Sugar Scrub Lip Treatment", 6,120,101);
+INSERT INTO product_list VALUES (11, "Skin Barrier Face Mask", 5,100,79);
+INSERT INTO product_list VALUES (12, "Pore Deep Clean Face Mask", 5,100,94);
+INSERT INTO product_list VALUES (13, "Vitamin A Retinol", 12,80,44);
+INSERT INTO product_list VALUES (14, "Sunshine Facial Oil", 16,80,32);
+INSERT INTO product_list VALUES (15, "Glowing Skin Body Oil", 16,80,71);
+
+--display the database order by price.
+SELECT * FROM product_list ORDER BY price;
+
+--what is the total number of products sold? 
+SELECT SUM(number_sold) FROM product_list
+
+--what are the top 5 most popular products? 
+SELECT item, number_sold FROM product_list ORDER BY number_sold desc LIMIT 5;
+
+
+
