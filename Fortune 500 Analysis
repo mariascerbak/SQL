@@ -59,7 +59,7 @@ VALUES
 
 #Analysis:
 
-#Assign companies as "mother friendly workplace", "acceptable" or
+#Assigned companies as "mother friendly workplace", "acceptable" or
 "unacceptable" based on the maternity leave offered. 
 
 SELECT company_name,
