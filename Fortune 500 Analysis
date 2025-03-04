@@ -103,3 +103,10 @@ and what is their revenue?
 SELECT company_name, MIN(revenue)
 FROM fortune_companies
 WHERE industry= "Technology";
+
+--How many total employees work in each industry and which industries have the most employees? 
+
+SELECT industry, SUM(employees) AS total_employees
+FROM fortune_companies
+GROUP BY industry
+ORDER BY total_employees DESC;
