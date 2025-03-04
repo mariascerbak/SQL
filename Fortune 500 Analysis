@@ -59,7 +59,7 @@ VALUES
 
 #Analysis:
 
-#Assigned companies as "mother friendly workplace", "acceptable" or
+--Assigned companies as "mother friendly workplace", "acceptable" or
 "unacceptable" based on the maternity leave offered. 
 
 SELECT company_name,
@@ -70,7 +70,19 @@ ELSE "unacceptable"
 END AS mother_friendliness
 FROM fortune_companies;
 
-# Which industries have an average revenue of at least $200 
+-- Assigned companies as having "generous leave", "standard leave" or "limited leave" based on the amount of paid time off offered.  
+
+SELECT company_name,
+CASE 
+WHEN paid_time_off_days >= 16 THEN "generous_leave"
+WHEN paid_time_off_days >=12 THEN "standard_leave"
+WHEN paid_time_off_days >=8 THEN "limited_leave"
+ELSE "unacceptable"
+END AS paid_time_off_tier
+FROM fortune_companies;
+
+
+-- Which industries have an average revenue of at least $200 
 Billion and what are their avg revenues?
 
 SELECT industry, ROUND(AVG(revenue),1) AS avg_revenue_billions
@@ -78,14 +90,14 @@ FROM fortune_companies
 GROUP BY industry
 HAVING avg_revenue_billions>=200;
 
-#Which companies provide at least 20 paid time off days AND 10 
+--Which companies provide at least 20 paid time off days AND 10 
 weeks maternity leave?  
 SELECT company_name 
 FROM fortune_companies 
 WHERE paid_time_off_days >=20 
 AND maternity_leave_weeks >=10;
 
-#Which company in the Technology industry has the least revenue 
+--Which company in the Technology industry has the least revenue 
 and what is their revenue? 
 
 SELECT company_name, MIN(revenue)
